@@ -46,7 +46,7 @@ while True:
     print("1) Ingresar n números\n2) Calcular el area de un triangulo\n3) Verificar si un número es par\n4) Calcular el promedio de n calificaciones\n Ingresar n números y mostrar mayor y menor\n 6) Salir")
     op_main = input("Ingrese una de las opciones: ")
     match op_main:
-        case '1':
+        case '1': #TODO ESTO ES LA OPCION 1
             while True:
                 n = input("Ingrese una cantidad de números: ")
                 if not n.isdigit(): print("Lo siento, intentelo de nuevo")
@@ -57,9 +57,13 @@ while True:
                 nums.append(num)
             print("-"*30)
             while True:
-                print("  1) Suma total\2  2) El promedio\n  3) cantidad de positivos y negativos")
+                print("  1) Suma total\2  2) El promedio\n  3) cantidad de positivos y negativos\n  4) Salir")
                 op_op1 = input("Ingresa una de las opciones")
                 match op_op1:
+                    case '1': print(f"La suma total es {total_sum(nums)}")
+                    case '2': print(f"El promedio es {average(nums)}")
+                    case '3': pos_negt(nums)
+                    case '4': break
                     case _: print("\nLo siento, vuevlva a intentarlo")
 
         case _: print("\nLo siento, vuevlva a intentarlo")

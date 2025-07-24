@@ -46,7 +46,7 @@ while True:
     print("1) Ingresar n números\n2) Calcular el area de un triangulo\n3) Verificar si un número es par\n4) Calcular el promedio de n calificaciones\n Ingresar n números y mostrar mayor y menor\n 6) Salir")
     op_main = input("Ingrese una de las opciones: ")
     match op_main:
-        case '1': #TODO ESTO ES LA OPCION 1
+        case '1':
             while True:
                 n = input("Ingrese una cantidad de números: ")
                 if not n.isdigit(): print("Lo siento, intentelo de nuevo")
@@ -65,5 +65,11 @@ while True:
                     case '3': pos_negt(nums)
                     case '4': break
                     case _: print("\nLo siento, vuevlva a intentarlo")
-
+        case '2':
+            base = int(input("Ingrese la base de su traingulo"))
+            height = int(input("Ingrese la altura de su traingulo"))
+            print(f"El area de su triangulo es: {triangle_area(base,height)}")
+        case '3':
+            n = int(input("Ingrese un número: "))
+            pairnum(n)
         case _: print("\nLo siento, vuevlva a intentarlo")

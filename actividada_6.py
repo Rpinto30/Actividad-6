@@ -4,4 +4,11 @@ while True:
     print("1) Ingresar n números\n2) Calcular el area de un triangulo\n3) Verificar si un número es par\n4) Calcular el promedio de n calificaciones\n Ingresar n números y mostrar mayor y menor\n 6) Salir")
     op_main = input("Ingrese una de las opciones: ")
     match op_main:
+        case '1':
+            while True:
+                n = input("Ingrese una cantidad de números: ")
+                if not n.isdigit(): print("Lo siento, intentelo de nuevo")
+                else: break
+            for i in range(int(n)):
+
         case _: print("\nLo siento, vuevlva a intentarlo")

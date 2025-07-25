@@ -62,14 +62,16 @@ def mayor_minus(num_list,txt):
 
 def repeat_on_list(num_list):
     repeat = {}
+    copy = []
     for i in num_list:
-        for j in num_list:
-            if i == j:
-                repeat.setdefault(i,0)
+        if i not in copy: copy.append(i)
+        else:
+            if i not in repeat: repeat[i] = 2 #detecta si ya existia uno anterior igual al actual, por eso 2
+            else: repeat[i] += 1
 
-    print(repeat)
+    print(f"{'Repetidos':<15}{'Frecuencia'}")
+    for j in repeat: print(f"{j:<15}{repeat[j]}")
 
-repeat_on_list([4,86,2,3,4,1,6,1,-1])
 
 
 while True:

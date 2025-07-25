@@ -1,5 +1,5 @@
 #Reutilizados del ejercicio no.6
-def entry_nums():
+def entry_nums(only_integers=False):
     while True:
         n = input("\n>  Ingrese una cantidad de valores: ")
         if not n.isdigit(): print("\n>  Lo siento, intentelo de nuevo\n")
@@ -8,8 +8,10 @@ def entry_nums():
     for i in range(int(n)):
         while True:
             try:
-                num = float(input(f"{i + 1}) Ingresa numero: "))
-                if int(num) == num: num = int(num) #SOLO PARA QUE NO SALGA EL .0 CUANDO SON ENTEROS
+                if only_integers:  num = int(input(f"{i + 1}) Ingresa numero: ")) #SOLO PIDE ENTEROS Y NO ADMITE FLOTANTES
+                else:
+                    num = float(input(f"{i + 1}) Ingresa numero: "))
+                    if int(num) == num: num = int(num) #SOLO PARA QUE NO SALGA EL .0 CUANDO SON ENTEROS
                 break
             except ValueError : print("\n>  Lo siento, intentelo de nuevo\n")
         nums.append(num)
@@ -59,13 +61,15 @@ def prime_number(num):
                 break
         else: print(f"\n>  El número {num} es primo\n")
 
-def mayor_minus(num_list,mayor):
+def mayor_minus(num_list,mayor_option):
     mayor = num_list[0]
     minus = num_list[0]
     for l in num_list:
-        if l >= mayor: mayor = l
-        if l <= minus: minus = l
-    if mayor: return mayor
+        if mayor_option:
+            if l >= mayor: mayor = l
+        else:
+            if l <= minus: minus = l
+    if mayor_option: return mayor
     else: return minus
 
 def repeat_on_list(num_list):
@@ -130,13 +134,15 @@ while True:
                     case '3': break
                     case _: print("\n>  Entrada no valida, intente nuevamente")
         case '5':
-            nums_list = entry_nums()
+            nums_list = entry_nums(True)
             while True:
                 print("-" * 15 + f"Lista de números: {nums_list}" + "-" * 15)
                 print("  1) Mostrar número mayor\n  2) Mostar número menor\n  3) Cuantos se repiten\n  4) Salir")
                 op_5 = input("Ingrese una de las opciones: ")
                 match op_5:
-                    case '1': pass
+                    case '1': print(f">  El número mayor es: {mayor_minus(nums_list, True)}")
+                    case '2':print(f">  El número menor es: {mayor_minus(nums_list, False)}")
+                    case '3': repeat_on_list(nums_list)
                     case '4': break
                     case _: print("\n>  Entrada no valida, intente nuevamente")
         case '7': break

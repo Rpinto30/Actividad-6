@@ -2,13 +2,15 @@
 def entry_nums():
     while True:
         n = input("\n>  Ingrese una cantidad de números: ")
-        if not n.isdigit():
-            print("\n>  Lo siento, intentelo de nuevo")
-        else:
-            break
+        if not n.isdigit(): print("\nLo siento, intentelo de nuevo")
+        else: break
     nums = []
     for i in range(int(n)):
-        num = int(input(f"{i + 1}) Ingresa numero: "))
+        while True:
+            try:
+                num = int(input(f"{i + 1}) Ingresa numero: "))
+                break
+            except: print("\nLo siento, intentelo de nuevo")
         nums.append(num)
     return nums
 
@@ -52,7 +54,6 @@ while True:
     match op_main:
         case '1':
             nums = entry_nums()
-            print("-"*30)
             while True:
                 print("-"*25)
                 print("  1) Suma total\n  2) El promedio\n  3) cantidad de positivos y negativos\n  4) Salir")
@@ -64,11 +65,19 @@ while True:
                     case '4': break
                     case _: print("\n>  Lo siento, vuevlva a intentarlo\n")
         case '2':
-            base = int(input("\nIngrese la base de su traingulo: "))
-            height = int(input("Ingrese la altura de su traingulo: "))
+            while True:
+                try:
+                    base = int(input("\nIngrese la base de su traingulo: "))
+                    height = int(input("Ingrese la altura de su traingulo: "))
+                    break
+                except: print("\nLo siento, intentelo de nuevo")
             print(f"\n>  El area de su triangulo es: {triangle_area(base,height)}\n")
         case '3':
-            n = int(input("Ingrese un número: "))
+            while True:
+                try:
+                    n = int(input("Ingrese un número: "))
+                    break
+                except: print("\nLo siento, intentelo de nuevo")
             pairnum(n)
         case '4':
             nums = entry_nums()
@@ -78,4 +87,4 @@ while True:
         case _: print("\n>  Lo siento, vuevlva a intentarlo\n")
 
 print("\nHasta pronto!")
-print("Inge no me regañe :c no fue mi culpa, fue culpa del bus")
+print("Inge no me regañe :c no fue mi culpa, fue culpa del bus, me dió pena entrar")

@@ -1,7 +1,7 @@
 #Reutilizados del ejercicio no.6
 def entry_nums():
     while True:
-        n = input("\n>  Ingrese una cantidad de números: ")
+        n = input("\n>  Ingrese una cantidad de valores: ")
         if not n.isdigit(): print("\n>  Lo siento, intentelo de nuevo\n")
         else: break
     nums = []
@@ -51,7 +51,7 @@ def rect_area(base, height): return base*height
 def rect_perimet(x,y): return 2*(x+y)
 
 def prime_number(num):
-    if num <= 1 or int(num) != num: print("\n>  Solo pueden ser considerados primero los enteros positivos mayores que 1\n")
+    if num <= 1: print("\n>  Solo pueden ser considerados primero los enteros positivos mayores que 1\n")
     else:
         for i in range(2,num):
             print(i)
@@ -104,6 +104,29 @@ while True:
                     case '3': pos_neg(nums)
                     case '4': print(f"\n>  Existen {mult_3(nums)} numeros multiplos de 3")
                     case '5': break
+                    case _: print("\n>  Entrada no valida, intente nuevamente\n")
+        case '2':
+            print("-"*15+"Área y perimetro de un rectangulo"+"-"*15)
+            while True:
+                try:
+                    base = float(input("Ingrese la base de su rectangulo: "))
+                    height = float(input("Ingrese la altura de su rectangulo: "))
+                    break
+                except ValueError: print("Lo siento, vuelva a intentarlo")
+            print(f"\n>  El area de su rectangulo es {rect_area(base,height)} y el perimetro es {rect_perimet(base,height)}")
+        case '3':
+            print("-" * 15 + "Numero primo" + "-" * 15)
+            num = int(input("Ingrese un número entero positivo: "))
+            prime_number(num)
+        case '4':
+            values = entry_nums()
+            while True:
+                print("-" * 15 + f"Calificaciones: {values}/Promedio:{average(values)}" + "-" * 15)
+                print("  1) Mostrar notas mayores o iguales a 85\n  2) Mostar nostas en zona de riesgo\n  3) Salir")
+                op_4 = input("Ingrese una de las opciones: ")
+                match op_4:
+                    case '3': break
                     case _: print("\n>  Entrada no valida, intente nuevamente")
+
         case '7': break
         case _: print("\n>  Entrada no valida, intente nuevamente")

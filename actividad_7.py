@@ -27,8 +27,8 @@ def mayor_that(list_num, mayor, txt, minus):
     for i in list_num:
         if i>=mayor: pos+=1
         else: neg +=1
-    if minus: print(f"Hay {neg} {txt} menores a {mayor}")
-    else:print(f"Hay {pos} {txt} mayores a {mayor}")
+    if minus: print(f">  Hay {neg} {txt} menores a {mayor}")
+    else:print(f">  Hay {pos} {txt} mayores a {mayor}")
 
 def pos_neg(list_num):
     zeros, pos, neg = 0,0,0
@@ -54,19 +54,19 @@ def prime_number(num):
     if num <= 1: print("\n>  Solo pueden ser considerados primero los enteros positivos mayores que 1\n")
     else:
         for i in range(2,num):
-            print(i)
             if num%i == 0:
                 print(f"\n>  El número {num} no es primo\n")
                 break
         else: print(f"\n>  El número {num} es primo\n")
 
-def mayor_minus(num_list,txt):
+def mayor_minus(num_list,mayor):
     mayor = num_list[0]
     minus = num_list[0]
     for l in num_list:
         if l >= mayor: mayor = l
         if l <= minus: minus = l
-    print(txt)
+    if mayor: return mayor
+    else: return minus
 
 def repeat_on_list(num_list):
     repeat = {}
@@ -125,8 +125,19 @@ while True:
                 print("  1) Mostrar notas mayores o iguales a 85\n  2) Mostar nostas en zona de riesgo\n  3) Salir")
                 op_4 = input("Ingrese una de las opciones: ")
                 match op_4:
+                    case '1': mayor_that(values, 85, 'notas', False)
+                    case '2': mayor_that(values, 60, 'notas', True)
                     case '3': break
                     case _: print("\n>  Entrada no valida, intente nuevamente")
-
+        case '5':
+            nums_list = entry_nums()
+            while True:
+                print("-" * 15 + f"Lista de números: {nums_list}" + "-" * 15)
+                print("  1) Mostrar número mayor\n  2) Mostar número menor\n  3) Cuantos se repiten\n  4) Salir")
+                op_5 = input("Ingrese una de las opciones: ")
+                match op_5:
+                    case '1': pass
+                    case '4': break
+                    case _: print("\n>  Entrada no valida, intente nuevamente")
         case '7': break
         case _: print("\n>  Entrada no valida, intente nuevamente")

@@ -106,7 +106,9 @@ while True:
                     case '1': print(f"\n>  La suma total es {total_sum(nums)}")
                     case '2': print(f"\n>  El promedio total es {average(nums)}")
                     case '3': pos_neg(nums)
-                    case '4': print(f"\n>  Existen {mult_3(nums)} numeros multiplos de 3")
+                    case '4':
+                        if mult_3(nums) == 1: print(f"\n>  Existe 1 numero multiplo de 3")
+                        else: print(f"\n>  Existen {mult_3(nums)} numeros multiplos de 3")
                     case '5': break
                     case _: print("\n>  Entrada no valida, intente nuevamente\n")
         case '2':
@@ -145,5 +147,28 @@ while True:
                     case '3': repeat_on_list(nums_list)
                     case '4': break
                     case _: print("\n>  Entrada no valida, intente nuevamente")
-        case '7': break
+        case '6':
+            while True:
+                try:
+                    n1 = float(input("Ingrese un número: "))
+                    n2 = float(input("Ingrese otro número: "))
+                    break
+                except ValueError: print("\n>  Lo siento, intente nuevamente")
+
+            while True:
+                print("-" * 15 + f"Calculadora con números {n1} y {n2}" + "-" * 15)
+                print("  1) Sumar\n  2) Restar\n  3) Multiplicar\n  4) Divirir\n  5) Salir")
+                op_6 = input("Ingrese una de las opciones: ")
+                match op_6:
+                    case '1': print(f">  La suma entre {n1} y {n2} es {sum_nums(n1,n2)}")
+                    case '2': print(f">  La resta entre {n1} y {n2} es {dif_nums(n1,n2)}")
+                    case '3': print(f">  La multiplicacion entre {n1} y {n2} es {mult_nums(n1,n2)}")
+                    case '4':
+                        if div_nums(n1,n2) == 0: print(">  la division por 0 no e6stá definida")
+                        else: print(f">  La division entre {n1} y {n2} es {div_nums(n1,n2)}")
+                    case '5': break
+                    case _: print("\n>  Entrada no valida, intente nuevamente")
+        case '7':
+            print("\nHasta pronto!")
+            break
         case _: print("\n>  Entrada no valida, intente nuevamente")

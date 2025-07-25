@@ -22,12 +22,12 @@ def total_sum(list_num):
 def average(list_num):
     return total_sum(list_num)/len(list_num)
 
-def pos_negt(list_num):
+def mayor_that(list_num, mayor, txt):
     pos, neg = 0,0
     for i in list_num:
-        if i>=0: pos+=1
+        if i>=mayor: pos+=1
         else: neg +=1
-    print(f"\n>  La cantidad de positivos es {pos} y de negativos es {neg}\n")
+    print(txt)
 
 #FUNCIONES EXCLUSIVAS DEL EJERCICIO 7
 def mult_3(list_num):
@@ -51,6 +51,26 @@ def prime_number(num):
                 print(f"\nEl número {num} no es primo")
                 break
         else: print(f"\nEl número {num} es primo")
+
+def mayor_minus(num_list,txt):
+    mayor = num_list[0]
+    minus = num_list[0]
+    for l in num_list:
+        if l >= mayor: mayor = l
+        if l <= minus: minus = l
+    print(txt)
+
+def repeat_on_list(num_list):
+    repeat = {}
+    for i in num_list:
+        for j in num_list:
+            if i == j:
+                repeat.setdefault(i,0)
+
+    print(repeat)
+
+repeat_on_list([4,86,2,3,4,1,6,1,-1])
+
 
 while True:
     print("-"*20+"Bienvenido"+"-"*20)

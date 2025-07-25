@@ -10,7 +10,7 @@ def entry_nums():
             try:
                 num = int(input(f"{i + 1}) Ingresa numero: "))
                 break
-            except: print("\nLo siento, intentelo de nuevo")
+            except ValueError : print("\nLo siento, intentelo de nuevo")
         nums.append(num)
     return nums
 
@@ -19,8 +19,7 @@ def total_sum(list_num):
     for i in list_num: s+=i
     return s
 
-def average(list_num):
-    return total_sum(list_num)/len(list_num)
+def average(list_num): return total_sum(list_num)/len(list_num)
 
 def mayor_that(list_num, mayor, txt):
     pos, neg = 0,0
@@ -36,11 +35,9 @@ def mult_3(list_num):
         if i%3==0: m3 +=1
     return m3
 
-def rect_area(base, height):
-    return base*height
+def rect_area(base, height): return base*height
 
-def rect_perimet(x,y):
-    return 2*(x+y)
+def rect_perimet(x,y): return 2*(x+y)
 
 def prime_number(num):
     if num <= 1 or int(num) != num: print("\nSolo pueden ser considerados primero los enteros positivos mayores que 1")
@@ -71,6 +68,13 @@ def repeat_on_list(num_list):
 
     print(f"{'Repetidos':<15}{'Frecuencia'}")
     for j in repeat: print(f"{j:<15}{repeat[j]}")
+
+def sum_nums(x,y): return x+y
+def dif_nums(x,y): return x-y
+def mult_nums(x,y): return x*y
+def div_nums(x,y):
+    try: return x/y
+    except ZeroDivisionError: return 0
 
 
 

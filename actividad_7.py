@@ -8,7 +8,8 @@ def entry_nums():
     for i in range(int(n)):
         while True:
             try:
-                num = int(input(f"{i + 1}) Ingresa numero: "))
+                num = float(input(f"{i + 1}) Ingresa numero: "))
+                if int(num) == num: num = int(num) #SOLO PARA QUE NO SALGA EL .0 CUANDO SON ENTEROS
                 break
             except ValueError : print("\n>  Lo siento, intentelo de nuevo\n")
         nums.append(num)
@@ -35,8 +36,8 @@ def pos_neg(list_num):
         if i == 0: zeros+=1
         elif i>=0: pos+=1
         else: neg +=1
-    print(f"\n>  La cantidad de positivos es {pos} y de negativos es {neg}\n")
-    print(f">  La cantidad de ceros es: {zeros}")
+    print(f"\n>  La cantidad de positivos es {pos} y de negativos es {neg}")
+    print(f">  La cantidad de ceros es: {zeros}\n")
 
 #FUNCIONES EXCLUSIVAS DEL EJERCICIO 7
 def mult_3(list_num):
@@ -99,6 +100,9 @@ while True:
                 op_1 = input("Ingrese una de las opciones: ")
                 match op_1:
                     case '1': print(f"\n>  La suma total es {total_sum(nums)}")
+                    case '2': print(f"\n>  El promedio total es {average(nums)}")
+                    case '3': pos_neg(nums)
+                    case '4': print(f"\n>  Existen {mult_3(nums)} numeros multiplos de 3")
                     case '5': break
                     case _: print("\n>  Entrada no valida, intente nuevamente")
         case '7': break

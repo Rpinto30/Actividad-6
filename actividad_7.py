@@ -76,8 +76,11 @@ def div_nums(x,y):
     try: return x/y
     except ZeroDivisionError: return 0
 
-
-
 while True:
-    print("-"*20+"Bienvenido"+"-"*20)
-    break
+    print("-"*30+"Bienvenido"+"-"*30)
+    print("1) Ingresar n números reales\n2) Calcular el perimetro y area de un rectángulo\n3) Verificar si un número es primo\n4) Calcular el promedio de n calificaciones\n5) Ingresar n números enteros\n6) Calculadora\n7) Salir")
+    op = input("Ingrese una de las opciones: ")
+    match op:
+
+        case '7': break
+        case _: print("Entrada no valida, intente nuevamente")

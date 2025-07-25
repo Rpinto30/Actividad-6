@@ -1,4 +1,3 @@
-
 def entry_nums():
     while True:
         n = input("\n>  Ingrese una cantidad de números: ")
